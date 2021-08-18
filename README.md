@@ -1,3 +1,3 @@
 # Arcade-City
 
-An online arcade using Assembly
+An online arcade built using Assembly
