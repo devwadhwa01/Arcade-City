@@ -1,4 +1,18 @@
+;Microprocessor Project
+
+;Dev Wadhwa 19BCE0444
+;Grihit Budhiraja 19BCE2141
+;Anusha Mandal 19BCE2211
+;B. Ashwin Janardhan 19BCE2443
+;Shashwat Ashar 19BCE0808
+
 data segment       
+    
+    arcade_city_start db "Arcade City", 13, 10, "$"
+    menu_1 db "1. Tic Tac Toe", 13, 10, "$"
+    menu_2 db "2. Hangman", 13, 10, "$"
+    menu_3 db "3. Ping Pong", 13, 10, "$"
+    
     new_line db 13, 10, "$"
     
     game_draw db "_|_|_", 13, 10
@@ -10,8 +24,8 @@ data segment
     win_flag db 0 
     player db "0$" 
     
-    game_over_message db "A", 13, 10, "$"    
-    game_start_message db "B", 13, 10, "$"
+    game_over_message db "End", 13, 10, "$"    
+    game_start_message db "Start", 13, 10, "$"
     player_message db "PLAYER $"   
     win_message db " WIN!$"   
     type_message db "TYPE A POSITION: $"
@@ -21,17 +35,26 @@ stack segment
     dw   128  dup(?)
 ends         
 
-extra segment
-    
-ends
-
 code segment
-start:
+
+
+;arcade_city:
+    ; set segment registers
+    ;mov     ax, data
+    ;mov     ds, ax
+    ;lea     dx, arcade_city_start 
+    ;call    print
+    ;lea     dx, menu_1 
+    ;call    print
+    ;lea     dx, menu_2 
+    ;call    print
+    ;lea     dx, menu_3  
+    
+    
+start_tic_tac_toe:
     ; set segment registers
     mov     ax, data
     mov     ds, ax
-    mov     ax, extra
-    mov     es, ax
 
     ; game start   
     call    set_game_pointer    
@@ -240,7 +263,7 @@ check_diagonal:
         
     first_diagonal:    
     mov     si, 0                
-    mov     dx, 4
+    mov     dx, 4 
     jmp     do_check_diagonal   
 
     second_diagonal:    
@@ -360,4 +383,4 @@ fim:
       
 code ends
 
-end start
+end start_tic_tac_toe
