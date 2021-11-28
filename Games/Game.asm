@@ -29,10 +29,7 @@ data segment
     
     s_size  equ     7
 
-; the snake coordinates
-; (from head to tail)
-; low byte is left, high byte
-; is top - [top, left]
+
 snake dw s_size dup(0)
 
 tail    dw      ?
